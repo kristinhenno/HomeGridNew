@@ -4,7 +4,9 @@
   "description": "",
   "main": "server.js",
   "engines": {
-    "yarn": "1.x"
+    "yarn": "1.x",
+    "node": "12.x",
+    "npm": "6.x"
   },
   "scripts": {
     "server": "node server.js",
