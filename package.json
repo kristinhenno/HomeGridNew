@@ -1,10 +1,8 @@
 {
   "name": "mern",
   "version": "1.0.0",
-  "private": true,
   "description": "",
   "main": "server.js",
-
   "engines": {
     "yarn": "1.x"
   },
@@ -37,6 +35,18 @@
     "request": "^2.88.2",
     "stripe": "^8.115.0",
     "yelp-fusion": "^3.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "repository": "https://github.com/kristinhenno/HomeGridNew.git"
 }
