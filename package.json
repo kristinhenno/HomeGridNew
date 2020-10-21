@@ -34,9 +34,5 @@
     "stripe": "^8.115.0",
     "yelp-fusion": "^3.0.0"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  
-  },
   "repository": "https://github.com/kristinhenno/HomeGridNew.git"
 }
