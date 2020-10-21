@@ -7,13 +7,12 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "start":  "concurrently \"npm run server\" \"npm run client\"",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "client": "cd Client && npm start",
     "server": "nodemon server.js"
-
   },
   "dependencies": {
     "bcrypt": "^5.0.0",
@@ -48,5 +47,6 @@
     "devDependencies": {
       "concurrently": "^4.0.1"
     }
-  }
+  },
+  "repository": "https://github.com/kristinhenno/HomeGridNew.git"
 }
