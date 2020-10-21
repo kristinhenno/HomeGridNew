@@ -15,6 +15,7 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json({limit: '80mb'}));
 // Serve up static assets
 // app.use(express.static("client/public"));
+app.use(express.static("client/build"));
 // Add routes, both API and view
 app.use(cors());
 
