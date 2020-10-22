@@ -13,7 +13,6 @@
     "client": "node scripts/start-client.js",
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "build": "node scripts/build.js",
-    "seed": "node scripts/seedDB.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -37,8 +36,9 @@
     "jest": "24.9.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.10.9",
-    "react-scripts": "2.1.8",
+    "react-scripts": "^3.4.4",
     "request": "^2.88.2",
+    "start": "^5.1.0",
     "stripe": "^8.115.0",
     "webpack": "4.42.0",
     "yelp-fusion": "^3.0.0"
