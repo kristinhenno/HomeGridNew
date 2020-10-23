@@ -23,7 +23,7 @@ router.use("/scrape", scrapeRoute);
 //   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 // });
 
-router.get('*', (req, res) => res.sendFile(__dirname + '../client/build/index.html')));
+router.get('*', (req, res) => res.sendFile(__dirname + '../client/build/index.html'));
 
 // router.get('*', function (req, res) {
 //   const index = path.join(__dirname, 'client', 'build', 'index.html');
