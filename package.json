@@ -11,10 +11,10 @@
     "server": "node server.js",
     "client": "node scripts/start-client.js",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false YARN_PRODUCTION=false"
-    
+    "build": "node scripts/build.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "heroku-run-build-script": true,
   "author": "",
   "license": "ISC",
   "devDependencies": {
@@ -22,6 +22,7 @@
     "nodemon": "^1.11.0"
   },
   "dependencies": {
+    "@heroku/update-node-build-script": "^1.0.3",
     "babel-eslint": "10.1.0",
     "babel-jest": "24.9.0",
     "bcrypt": "^5.0.0",
