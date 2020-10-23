@@ -1,9 +1,11 @@
 const express = require("express");
-const routes = require("./routes");
+// const routes = require("./routes");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const routes = require("./routes");
+app.use(routes);
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -42,20 +44,6 @@ connection.once("open", () => {
   );
 });
 
-const itemsRouter = require("./routes/item");
-const usersRouter = require("./routes/users");
-const yelpRoute = require("./routes/api/yelp");
-const stockRoute = require("./routes/api/stocks");
-const stripeRoute = require("./routes/stripe");
-const scrapeRoute = require("./routes/api/scrape");
-
-
-app.use("/items", itemsRouter);
-app.use("/users", usersRouter);
-app.use("/yelp", yelpRoute);
-app.use("/stocks", stockRoute);
-app.use("/stripe", stripeRoute);
-app.use("/scrape", scrapeRoute);
 
 
 // Start the API server
