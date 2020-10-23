@@ -46,7 +46,7 @@ connection.once("open", () => {
 
 
 app.get('/*', function(req, res){
-  res.sendFile(__dirname +  '/client/build/index.html');
+  res.sendFile('/client/build/index.html');
 });
 
 // Start the API server
