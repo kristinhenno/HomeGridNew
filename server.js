@@ -20,20 +20,20 @@ app.use(express.static("client/build"));
 app.use(cors());
 
 
-const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false
-});
+// const uri = process.env.ATLAS_URI;
+// mongoose.connect(uri, {
+//   useNewUrlParser: true,
+//   useCreateIndex: true,
+//   useUnifiedTopology: true,
+//   useFindAndModify: false
+// });
 
-const connection = mongoose.connection;
-connection.once("open", () => {
-  console.log(
-    "MongoDB database connection established successfully"
-  );
-});
+// const connection = mongoose.connection;
+// connection.once("open", () => {
+//   console.log(
+//     "MongoDB database connection established successfully"
+//   );
+// });
 
 const itemsRouter = require("./routes/item");
 const usersRouter = require("./routes/users");
