@@ -20,7 +20,7 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json({limit: '80mb'}));
 // Serve up static assets
 // app.use(express.static("client/public"));
-app.use(express.static("client/build"));
+app.use(express.static("client/public"));
 
 
 // Add routes, both API and view
@@ -45,7 +45,7 @@ connection.once("open", () => {
 
 
 app.get('/*', function(req, res){
-  res.sendFile(__dirname, '/client/build/index.html');
+  res.sendFile(__dirname, '/client/public/index.html');
 });
 
 // Start the API server
