@@ -13,7 +13,7 @@
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "build": "node scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
     
   },
   "author": "",
