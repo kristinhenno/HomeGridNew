@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
+const routes = require("./routes");
 
 
 
@@ -16,24 +17,25 @@ app.use(express.json({limit: '80mb'}));
 // Serve up static assets
 // app.use(express.static("client/public"));
 app.use(express.static("client/build"));
+
 // Add routes, both API and view
 app.use(cors());
 
 
-// const uri = process.env.ATLAS_URI;
-// mongoose.connect(uri, {
-//   useNewUrlParser: true,
-//   useCreateIndex: true,
-//   useUnifiedTopology: true,
-//   useFindAndModify: false
-// });
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+});
 
-// const connection = mongoose.connection;
-// connection.once("open", () => {
-//   console.log(
-//     "MongoDB database connection established successfully"
-//   );
-// });
+const connection = mongoose.connection;
+connection.once("open", () => {
+  console.log(
+    "MongoDB database connection established successfully"
+  );
+});
 
 const itemsRouter = require("./routes/item");
 const usersRouter = require("./routes/users");
@@ -41,6 +43,7 @@ const yelpRoute = require("./routes/api/yelp");
 const stockRoute = require("./routes/api/stocks");
 const stripeRoute = require("./routes/stripe");
 const scrapeRoute = require("./routes/api/scrape");
+const defaults = require("./routes/index");
 
 app.use("/items", itemsRouter);
 app.use("/users", usersRouter);
@@ -48,6 +51,7 @@ app.use("/yelp", yelpRoute);
 app.use("/stocks", stockRoute);
 app.use("/stripe", stripeRoute);
 app.use("/scrape", scrapeRoute);
+app.use("/", defaults);
 
 // Start the API server
 app.listen(PORT, function() {
