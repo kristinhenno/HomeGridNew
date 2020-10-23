@@ -5,12 +5,11 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const routes = require("./routes");
-
-const path = require("path");
 app.use(routes);
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+
+
 
 
 require("dotenv").config();
@@ -22,7 +21,7 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json({limit: '80mb'}));
 // Serve up static assets
 // app.use(express.static("client/public"));
-
+app.use(express.static("client/build"));
 
 
 // Add routes, both API and view
@@ -46,17 +45,6 @@ connection.once("open", () => {
 });
 
 
-// app.get('/*', function(req, res){
-//   res.sendFile(__dirname, '/client/build/index.html');
-// });
-
-// app.use(express.static("client/build"));
-
-app.use(express.static(path.join(__dirname, "client", 'public')));
-
-app.get('*', function(req, res) {
-  res.sendFile(path.join(__dirname, "client", 'public', 'index.html'));
-});
 
 // Start the API server
 app.listen(PORT, function() {
