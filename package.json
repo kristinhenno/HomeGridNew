@@ -11,7 +11,6 @@
     "server": "node server.js",
     "client": "node scripts/start-client.js",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "node scripts/build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "heroku-postbuild": "yarn add --prefix client && yarn run build --prefix client"
   },
