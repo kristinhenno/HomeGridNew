@@ -8,8 +8,7 @@ const routes = require("./routes");
 app.use(routes);
 
 app.use(bodyParser.urlencoded({ extended: false }));
-
-
+app.use(bodyParser.json());
 
 
 require("dotenv").config();
