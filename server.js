@@ -36,7 +36,7 @@ app.use(cors());
 
 
 const itemsRouter = require("./routes/item");
-const usersRouter = require("./routes/users");
+const usersRouter = require("./routes/api/users");
 const yelpRoute = require("./routes/api/yelp");
 const stockRoute = require("./routes/api/stocks");
 const stripeRoute = require("./routes/stripe");
