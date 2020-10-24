@@ -17,9 +17,9 @@ class Settings extends React.Component {
     optionsArray: [
       "Yelp",
       "Weather",
-      "Google",
-      "Bing",
-      "Yahoo",
+      // "Google",
+      // "Bing",
+      // "Yahoo",
       "Checklist",
       "Words",
       // "Stocks", 
