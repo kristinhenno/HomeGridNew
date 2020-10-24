@@ -306,6 +306,8 @@ class Login extends React.Component {
 
   responseGoogle = response => {
 
+
+    console.log(response);
     this.setState({
       user: {
         email: response.profileObj.email,
@@ -317,7 +319,10 @@ class Login extends React.Component {
     this.login();
   };
 
+
   responseGoogleSignUp = response => {
+
+    console.log(response);
 
     this.setState({
       user: {

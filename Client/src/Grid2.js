@@ -30,12 +30,12 @@ class Grid2 extends React.Component {
     grid: [
       <Yelp />,
       <Maps />,
-      <Gif />,
+      <Words />,
       <Streaming />,
       <Google />,
       <Calculator />,
       <Weather />,
-      <Words />,
+      <Gif />,
       <News />
     ],
     uerGrid: []
