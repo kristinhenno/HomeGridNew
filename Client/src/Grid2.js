@@ -18,6 +18,12 @@ import Maps from "./Maps";
 import Streaming from "./Streaming";
 import Calculator from "./Calculator";
 import ClipLoader from "react-spinners/ClipLoader";
+import {
+  BrowserView,
+  MobileView,
+  isBrowser,
+  isMobile
+} from "react-device-detect";
 
 import { getFromStorage, setInStorage } from "./utils/storage";
 
@@ -148,6 +154,15 @@ class Grid2 extends React.Component {
   componentDidMount() {
     this.verify();
 
+    if (isMobile) {
+      this.grid = new MuuriGrid({
+        node: this.gridElement,
+        defaultOptions: {
+          dragEnabled: false // See Muuri's documentation for other option overrides.
+        }
+      });
+    } else {
+        
     this.grid = new MuuriGrid({
       node: this.gridElement,
       defaultOptions: {
@@ -156,13 +171,15 @@ class Grid2 extends React.Component {
     });
     // set callback on move
     this.grid.getEvent("move", null, null, this.updateGridState);
+
+    }
   }
 
   render() {
 
     return (
       <Style>
-        <div>
+        <div >
           {/* Assign a ref to the grid container so the virtual DOM will ignore it for now (WIP). */}
 
           <div ref={gridElement => (this.gridElement = gridElement)}>
@@ -199,6 +216,8 @@ class Grid2 extends React.Component {
                 ))} */}
           </div>
         </div>
+
+
       </Style>
     );
   }
@@ -255,7 +274,8 @@ const Style = styled.section`
       width: 100%;
       height: 33.3vh;
     }
-  
+
+
   }
 `;
 

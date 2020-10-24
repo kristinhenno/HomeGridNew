@@ -20,9 +20,9 @@ class Preferences extends React.Component {
       selectedOption: changeEvent.target.value
     });
     const selection = changeEvent.target.value;
-    // console.log(selection);
+    console.log(selection);
     const newGrid = this.state.currentGrid.slice(); //copy the array
-    // console.log(e.currentTarget.dataset.name);
+    console.log(newGrid);
 
     var i;
     for (i = 0; i < newGrid.length; i++) {
@@ -34,7 +34,7 @@ class Preferences extends React.Component {
         // console.log(newGrid[i]);
         newGrid.splice(i, 1, selection);
         // console.log(newGrid);
-        this.setState({ currentGrid: newGrid }); //set the new state
+        this.setState({ currentGrid: newGrid }, ()=> console.log(this.state.currentGrid)); //set the new state
         // return newGrid;
       }
     }
@@ -106,12 +106,12 @@ class Preferences extends React.Component {
     const id = this.state.userId;
     // console.log(this.state.currentGrid);
 
-    this.setState({ selected: "", shake: false });
+    // this.setState({ selected: "", shake: false });
 
     let grid = this.state.currentGrid.map(item => {
       return { widget: item };
     });
-    // console.log(grid);
+    console.log(grid);
 
     API.update(id, grid).then(res => {
       if (res) {

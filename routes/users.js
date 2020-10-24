@@ -78,6 +78,8 @@ router.route("/add").post((req, res) => {
       newUser.email = email;
       newUser.username = username;
       newUser.password = newUser.generateHash(password);
+      newUser.grid= [{widget: "Yelp"},{widget: "Maps"},  {widget: "Words"}, {widget: "Streaming"}, {widget: "Google"},{widget: "Calculator"},{widget: "Weather"},{widget: "Gif"}, {widget: "News"}];
+
       newUser.save((err, user) => {
         if (err) {
           return res.send({
