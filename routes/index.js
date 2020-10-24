@@ -18,17 +18,17 @@ router.use("/stripe", stripeRoute);
 router.use("/scrape", scrapeRoute);
 
 
-// router.use(function(req, res) {
-//     res.sendFile(path.join(__dirname, "../Client/build/index.html"));
-//   });
+router.use(function(req, res) {
+    res.sendFile(path.join(__dirname, "../Client/build/index.html"));
+  });
   
 
 // If no API routes are hit, send the React app
 // router.get(function(req, res) {
-//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
+//   res.sendFile(path.join(__dirname, "../Client/build/index.html"));
 // });
 
-router.get('*', (req, res) => res.sendFile('../Client/build/index.html'));
+// router.get('*', (req, res) => res.sendFile('../Client/build/index.html'));
 
 // router.get('*', function (req, res) {
 //   const index = path.join(__dirname, 'client', 'build', 'index.html');
