@@ -31,9 +31,9 @@ const root = require('path').join(__dirname, '/Client', 'build');
 
 
 app.use(express.static(root));
-app.get("*", (req, res) => {
-    res.sendFile('index.html', { root });
-})
+// app.get("*", (req, res) => {
+//     res.sendFile('index.html', { root });
+// })
 
 
 
