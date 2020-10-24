@@ -20,7 +20,7 @@ router.use("/scrape", scrapeRoute);
 
 router.use(function(req, res) {
     // res.sendFile(path.join(__dirname, "../Client/build/index.html"));
-    res.sendFile(path.join(__dirname, '../Client','public', 'index.html'));
+    res.sendFile(path.join(__dirname, '../Client','build', 'index.html'));
   });
   
 

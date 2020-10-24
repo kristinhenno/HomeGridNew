@@ -23,7 +23,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json({limit: '80mb'}));
 // Serve up static assets
 // app.use(express.static("client/public"));
-app.use(express.static("Client/public"));
+app.use(express.static("Client/build"));
 
 
 // Add routes, both API and view
