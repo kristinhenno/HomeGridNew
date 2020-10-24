@@ -24,11 +24,7 @@ router.use("/scrape", scrapeRoute);
 //   });
   
   
-  const root = require('path').join(__dirname, '../Client', 'build')
-router.use(express.static(root));
-router.get("*", (req, res) => {
-    res.sendFile('index.html', { root });
-})
+
 // If no API routes are hit, send the React app
 // router.get(function(req, res) {
 //   res.sendFile(path.join(__dirname, "../Client/build/index.html"));

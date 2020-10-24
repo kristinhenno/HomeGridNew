@@ -24,6 +24,11 @@ app.use(express.json({limit: '80mb'}));
 // Serve up static assets
 // app.use(express.static("client/public"));
 app.use(express.static("Client/build"));
+const root = require('path').join(__dirname, '/Client', 'build')
+app.use(express.static(root));
+app.get("*", (req, res) => {
+    res.sendFile('index.html', { root });
+})
 
 
 // Add routes, both API and view
