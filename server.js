@@ -3,14 +3,12 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
-const bodyParser = require("body-parser");
-const routes = require("./routes");
-const path = require("path");
-app.use(routes);
+// const bodyParser = require("body-parser");
+// const routes = require("./routes");
+// const path = require("path");
+// app.use(routes);
 
-app.use(bodyParser.urlencoded({ extended: false }));
-
-
+// app.use(bodyParser.urlencoded({ extended: false }));
 
 
 require("dotenv").config();
@@ -19,24 +17,44 @@ const PORT = process.env.PORT || 8080;
 
 
 // Configure body parser for AJAX requests
-// app.use(express.urlencoded({limit: '80mb'}));
+app.use(express.urlencoded({limit: '80mb'}));
 app.use(express.json({limit: '80mb'}));
 // Serve up static assets
 // app.use(express.static("client/public"));
-app.use(express.static("Client/build"));
-const root = require('path').join(__dirname, '/Client', 'build')
-app.use(express.static(root));
-app.get("*", (req, res) => {
-    res.sendFile('index.html', { root });
-})
-
+// app.use(express.static("Client/build"));
 
 // Add routes, both API and view
 app.use(cors());
 
 
+const root = require('path').join(__dirname, '/Client', 'build');
+
+
+// app.use(express.static(root));
+// app.get("*", (req, res) => {
+//     res.sendFile('index.html', { root });
+// })
+
+
+
+const uri = process.env.ATLAS_URI;
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false
+});
+
+const connection = mongoose.connection;
+connection.once("open", () => {
+  console.log(
+    "MongoDB database connection established successfully"
+  );
+});
+
+
 const itemsRouter = require("./routes/item");
-const usersRouter = require("./routes/api/users");
+const usersRouter = require("./routes/users");
 const yelpRoute = require("./routes/api/yelp");
 const stockRoute = require("./routes/api/stocks");
 const stripeRoute = require("./routes/stripe");
@@ -52,27 +70,7 @@ app.use("/scrape", scrapeRoute);
 
 
 
-const uri = process.env.ATLAS_URI;
 
-mongoose.connect(process.env.MONGODB_URI  || 'mongodb://localhost/homegrid',{
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false
-});
-
-const connection = mongoose.connection;
-connection.once("open", () => {
-  console.log(
-    "MongoDB database connection established successfully"
-  );
-});
-
-// // Step 2
-// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mern_youtube', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// });
 
 // I think this served / CANNOT GET
 
