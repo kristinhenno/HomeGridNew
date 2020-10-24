@@ -15,7 +15,6 @@ class Google extends React.Component {
 
   handleKeyPress = event => {
     if (event.key === "Enter") {
-      console.log(this.state.userInput);
       window.location.href =
         "https://www.google.com/search?q=" +
         this.state.userInput;
@@ -40,7 +39,6 @@ class Google extends React.Component {
   };
 
   render() {
-    console.log(this.state.settings);
     return (
       <Style>
         {this.state.settings ? (
