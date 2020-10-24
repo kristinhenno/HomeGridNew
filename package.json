@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
+  "homepage": "https://home-grid.herokuapp.com/",
   "engines": {
     "yarn": "1.x",
     "npm": "6.x",
