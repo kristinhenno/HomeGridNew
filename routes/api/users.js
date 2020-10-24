@@ -4,7 +4,7 @@ let User = require("../../models/user.model");
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
 const app = express();
-const UserSession = require("../models/UserSession");
+const UserSession = require("../../models/UserSession");
 
 app.use(cookieParser());
 
