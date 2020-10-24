@@ -273,7 +273,6 @@ class Weather extends Component {
   };
 
   render() {
-    console.log(this.state.hourlyTimes);
     const d = new Date();
     const weekday = new Array(14);
 
