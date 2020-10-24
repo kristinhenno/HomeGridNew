@@ -35,6 +35,22 @@ app.get("*", (req, res) => {
 app.use(cors());
 
 
+const itemsRouter = require("./routes/item");
+const usersRouter = require("./routes/users");
+const yelpRoute = require("./routes/api/yelp");
+const stockRoute = require("./routes/api/stocks");
+const stripeRoute = require("./routes/stripe");
+const scrapeRoute = require("./routes/api/scrape");
+
+
+app.use("/items", itemsRouter);
+app.use("/users", usersRouter);
+app.use("/yelp", yelpRoute);
+app.use("/stocks", stockRoute);
+app.use("/stripe", stripeRoute);
+app.use("/scrape", scrapeRoute);
+
+
 
 const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, {
