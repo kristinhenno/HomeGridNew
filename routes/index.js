@@ -2,11 +2,11 @@
 const path = require("path");
 const router = require("express").Router();
 
-const itemsRouter = require("./item");
-const usersRouter = require("./users");
+const itemsRouter = require("/item");
+const usersRouter = require("/users");
 const yelpRoute = require("./api/yelp");
 const stockRoute = require("./api/stocks");
-const stripeRoute = require("./stripe");
+const stripeRoute = require("/stripe");
 const scrapeRoute = require("./api/scrape");
 
 
