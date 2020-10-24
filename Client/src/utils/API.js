@@ -26,7 +26,7 @@ export default {
   },
 
   login: function(user) {
-    return axios.post("/users/login", user);
+    return axios.post("/users/login/", user);
   },
   retrieve: function(id) {
     return axios.get("/users/" + id);
