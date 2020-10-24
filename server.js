@@ -4,9 +4,9 @@ const app = express();
 const mongoose = require("mongoose");
 const cors = require("cors");
 // const bodyParser = require("body-parser");
-// const routes = require("./routes");
+const routes = require("./routes");
 // const path = require("path");
-// app.use(routes);
+app.use(routes);
 
 // app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -31,9 +31,9 @@ const root = require('path').join(__dirname, '/Client', 'build');
 
 
 app.use(express.static(root));
-// app.get("*", (req, res) => {
-//     res.sendFile('index.html', { root });
-// })
+app.get("*", (req, res) => {
+    res.sendFile('index.html', { root });
+})
 
 
 
