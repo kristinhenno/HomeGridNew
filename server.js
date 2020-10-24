@@ -48,11 +48,13 @@ connection.once("open", () => {
 // I think this served / CANNOT GET
 
 
-app.get('*', function(req, res){
+// app.get('*', function(req, res){
+//   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+// });
+
+app.use(function(req, res) {
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
-
-
 
 // app.get("*", (req, res) => {
 //   let url = path.join(__dirname, '/client/build', 'index.html');
