@@ -18,6 +18,11 @@ router.use("/stripe", stripeRoute);
 router.use("/scrape", scrapeRoute);
 
 
+router.use(function(req, res) {
+    res.sendFile(path.join(__dirname, "../client/build/index.html"));
+  });
+  
+
 // If no API routes are hit, send the React app
 // router.get(function(req, res) {
 //   res.sendFile(path.join(__dirname, "../client/build/index.html"));

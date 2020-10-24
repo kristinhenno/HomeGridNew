@@ -23,7 +23,7 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json({limit: '80mb'}));
 // Serve up static assets
 // app.use(express.static("client/public"));
-app.use(express.static("/client/build"));
+app.use(express.static("client/build"));
 
 
 // Add routes, both API and view
@@ -53,9 +53,9 @@ connection.once("open", () => {
 //   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 // });
 
-app.use(function(req, res) {
-  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-});
+// app.use(function(req, res) {
+//   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+// });
 
 
 
