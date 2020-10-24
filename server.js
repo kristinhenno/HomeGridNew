@@ -15,7 +15,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 require("dotenv").config();
 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3001;
+
 
 // Configure body parser for AJAX requests
 // app.use(express.urlencoded({limit: '80mb'}));
@@ -48,7 +49,7 @@ connection.once("open", () => {
 // I think this served / CANNOT GET
 
 
-// app.get('*', function(req, res){
+// app.get('/*', function(req, res){
 //   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 // });
 
@@ -56,12 +57,7 @@ app.use(function(req, res) {
   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
-// app.get("*", (req, res) => {
-//   let url = path.join(__dirname, '/client/build', 'index.html');
-//   if (!url.startsWith('/app/')) // since we're on local windows
-//     url = url.substring(1);
-//   res.sendFile(url);
-// });
+
 
 // Start the API server
 app.listen(PORT, function() {
