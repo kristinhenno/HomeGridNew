@@ -6,7 +6,6 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const routes = require("./routes");
 const path = require("path");
-
 app.use(routes);
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -23,8 +22,7 @@ const PORT = process.env.PORT || 8080;
 app.use(express.json({limit: '80mb'}));
 // Serve up static assets
 // app.use(express.static("client/public"));
-
-// app.use(express.static("client/build"));
+app.use(express.static("/client/build"));
 
 
 // Add routes, both API and view
@@ -47,13 +45,21 @@ connection.once("open", () => {
   );
 });
 
-app.get("*", (req, res) => {
-  let url = path.join(__dirname, '/client/build', 'index.html');
-  if (!url.startsWith('/app/')) // since we're on local windows
-    url = url.substring(1);
-  res.sendFile(url);
+// I think this served / CANNOT GET
+
+
+app.get('*', function(req, res){
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
 });
 
+
+
+// app.get("*", (req, res) => {
+//   let url = path.join(__dirname, '/client/build', 'index.html');
+//   if (!url.startsWith('/app/')) // since we're on local windows
+//     url = url.substring(1);
+//   res.sendFile(url);
+// });
 
 // Start the API server
 app.listen(PORT, function() {
