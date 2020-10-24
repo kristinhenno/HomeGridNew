@@ -53,7 +53,8 @@ app.use("/scrape", scrapeRoute);
 
 
 const uri = process.env.ATLAS_URI;
-mongoose.connect(uri, {
+
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
@@ -66,6 +67,12 @@ connection.once("open", () => {
     "MongoDB database connection established successfully"
   );
 });
+
+// // Step 2
+// mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/mern_youtube', {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
 
 // I think this served / CANNOT GET
 
