@@ -54,7 +54,7 @@ app.use("/scrape", scrapeRoute);
 
 const uri = process.env.ATLAS_URI;
 
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI  || 'mongodb://localhost/homegrid',{
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true,
