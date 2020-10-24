@@ -9,7 +9,7 @@ export default {
   },
 
   createUser: function(user) {
-    return axios.post("http://localhost:8080/users/add", user);
+    return axios.post("http://localhost:3001/users/add", user);
   },
   scrapeFox: function(){
   	return axios.get("/scrape/fox");
@@ -22,26 +22,26 @@ export default {
   },
 
   updateStocksMongo: function(id, stocks) {
-    return axios.post("http://localhost:8080/stocks/updatestocks/" + id, stocks);
+    return axios.post("http://localhost:3001/stocks/updatestocks/" + id, stocks);
   },
 
   login: function(user) {
-    return axios.post("http://localhost:8080/users/login", user);
+    return axios.post("http://localhost:3001/users/login", user);
   },
   retrieve: function(id) {
-    return axios.get("http://localhost:8080/users/" + id);
+    return axios.get("http://localhost:3001/users/" + id);
   },
   update: function(id, grid) {
-    return axios.post("http://localhost:8080/users/update/" + id, grid);
+    return axios.post("http://localhost:3001/users/update/" + id, grid);
   },
   updatelist: function(id, grid) {
-    return axios.post("http://localhost:8080/users/updatelist/" + id, grid);
+    return axios.post("http://localhost:3001/users/updatelist/" + id, grid);
   },
   logout: function(token) {
-    return axios.get("http://localhost:8080/users/logout?token=" + token);
+    return axios.get("http://localhost:3001/users/logout?token=" + token);
   },
   verify: function(token) {
-    return axios.get("http://localhost:8080/users/verify?token=" + token);
+    return axios.get("http://localhost:3001/users/verify?token=" + token);
   },
 
   getCurrentWeather: function(userInput) {
