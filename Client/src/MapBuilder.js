@@ -115,7 +115,6 @@ class MapBuilder extends Component {
       },
       (result, status) => {
         if (status === google.maps.DirectionsStatus.OK) {
-          console.log(result);
           this.setState({
             directions: result, 
             searched: true,
@@ -139,7 +138,7 @@ class MapBuilder extends Component {
       var lat = position.coords.latitude;
       var long = position.coords.longitude;
 
-      console.log(position);
+      
 
       currentComponent.setState({
         currentLat: lat,
@@ -154,10 +153,7 @@ class MapBuilder extends Component {
   }
 
   render() {
-    console.log(this.state.start);
-    console.log(this.state.startLat);
-    console.log(this.state.startLong);
-    console.log(this.state.show);
+
 
     return (
       
@@ -175,7 +171,7 @@ class MapBuilder extends Component {
         <Autocomplete id="start"
     style={{width: '40%'}}
     onPlaceSelected={(place) => {
-      console.log(place);
+  
       this.setState({
         start: place.formatted_address,
         userInput: place.formatted_address
