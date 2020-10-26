@@ -135,20 +135,36 @@ class Grid2 extends React.Component {
     let removed = this.state.grid.splice(data.fromIndex, 1)[0]; // you can remove more than one...
     this.state.grid.splice(data.toIndex, 0, removed);
 
+
+
     let grid = this.state.grid.map(item => {
       return { widget: item.type.name };
     });
+
+    var i;
+
+    for (i = 0; i < grid.length; i++){
+      if (grid[i].widget === "Google" || grid[i] === "Yelp" || grid[i] === "Bing"){
+
+        if (this.state.isLoggedIn) {
+  
+      
+          const id = this.state.userId;
+    
+          
+          API.update(id, grid).then(res => {
+            if (res) {
+         
+            }
+          });
+        }
+
+      }
+    }
  
 
-    if (this.state.isLoggedIn) {
-  
-      const id = this.state.userId;
-      API.update(id, grid).then(res => {
-        if (res) {
-     
-        }
-      });
-    }
+
+
   };
 
   componentDidMount() {

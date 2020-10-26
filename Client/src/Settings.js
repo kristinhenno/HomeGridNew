@@ -114,8 +114,10 @@ class Settings extends React.Component {
   }
 
   save = i => {
+
+    if (this.state.currentGrid.includes("Google") || this.state.currentGrid.includes("Yelp") || this.state.currentGrid.includes("Bing")){
     const id = this.state.userId;
-   
+
 
     this.setState({ selected: "", shake: false });
 
@@ -129,6 +131,7 @@ class Settings extends React.Component {
         this.refreshPage();
       }
     });
+  }
   };
 
   componentDidMount() {
@@ -136,6 +139,7 @@ class Settings extends React.Component {
   }
 
   render() {
+    console.log(this.state.selected)
     return (
       <Style>
         {this.state.isLoading ? (
