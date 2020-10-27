@@ -137,7 +137,7 @@ class Grid2 extends React.Component {
 
 
 
-    let grid = this.state.grid.map(item => {
+    var grid = this.state.grid.map(item => {
       return { widget: item.type.name };
     });
 
