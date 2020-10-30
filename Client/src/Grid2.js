@@ -58,9 +58,9 @@ class Grid2 extends React.Component {
 
     API.retrieve(id).then(res => {
       if (res.data.grid.length > 0) {
-       
+
         const gridArray = res.data.grid.map(item => item.widget);
-      
+
         const Map = {
           Yelp: Yelp,
           Google: Google,
@@ -77,7 +77,7 @@ class Grid2 extends React.Component {
           Gif: Gif,
           Streaming: Streaming,
           Calculator: Calculator
-     
+
 
         };
         const newGridArray = gridArray.map(item => {
@@ -107,13 +107,13 @@ class Grid2 extends React.Component {
       // Verify token
       API.verify(token).then(res => {
         if (res) {
-        
+
           this.setState({
             token: token,
             isLoggedIn: true,
             userId: res.data.userId
           });
-     
+
           this.retrieveGrid();
         } else {
           this.setState({
@@ -122,7 +122,7 @@ class Grid2 extends React.Component {
         }
       });
     } else {
-    
+
       this.setState({
         isLoading: false,
         isLoggedIn: false
@@ -143,25 +143,25 @@ class Grid2 extends React.Component {
 
     var i;
 
-    for (i = 0; i < grid.length; i++){
-      if (grid[i].widget === "Google" || grid[i] === "Yelp" || grid[i] === "Bing"){
+    for (i = 0; i < grid.length; i++) {
+      if ((grid[i].widget === "Google") || (grid[i].widget === "Yelp") || (grid[i].widget === "Bing") || (grid[i].widget === "Weather")) {
 
         if (this.state.isLoggedIn) {
-  
-      
+
+
           const id = this.state.userId;
-    
-          
+
+
           API.update(id, grid).then(res => {
             if (res) {
-         
+
             }
           });
         }
 
       }
     }
- 
+
 
 
 
@@ -178,15 +178,15 @@ class Grid2 extends React.Component {
         }
       });
     } else {
-        
-    this.grid = new MuuriGrid({
-      node: this.gridElement,
-      defaultOptions: {
-        dragEnabled: true // See Muuri's documentation for other option overrides.
-      }
-    });
-    // set callback on move
-    this.grid.getEvent("move", null, null, this.updateGridState);
+
+      this.grid = new MuuriGrid({
+        node: this.gridElement,
+        defaultOptions: {
+          dragEnabled: true // See Muuri's documentation for other option overrides.
+        }
+      });
+      // set callback on move
+      this.grid.getEvent("move", null, null, this.updateGridState);
 
     }
   }
@@ -201,35 +201,18 @@ class Grid2 extends React.Component {
           <div ref={gridElement => (this.gridElement = gridElement)}>
             {this.state.isLoading
               ? this.state.grid.map(components => (
-                  <div className="item box">
-                    <div id="loader" className="item-content"> <ClipLoader
-                          size={50}
-                          color={"#6342f5"}
-                        /></div>
-                  </div>
-                ))
+                <div className="item box">
+                  <div id="loader" className="item-content"> <ClipLoader
+                    size={50}
+                    color={"#6342f5"}
+                  /></div>
+                </div>
+              ))
               : this.state.grid.map(components => (
-                  <div className="item box">
-                    <div className="item-content">{components}</div>
-                  </div>
-                ))}
-
-            {/* {this.state.isLoggedIn &&
-            this.state.userGrid.length != undefined
-              ? this.state.userGrid.map(components => (
-                  <div className="item box">
-                    <div className="item-content">
-                      {components}
-                    </div>
-                  </div>
-                ))
-              : this.state.grid.map(components => (
-                  <div className="item box">
-                    <div className="item-content">
-                      {components}
-                    </div>
-                  </div>
-                ))} */}
+                <div className="item box">
+                  <div className="item-content">{components}</div>
+                </div>
+              ))}
           </div>
         </div>
 
