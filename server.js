@@ -17,8 +17,8 @@ const PORT = process.env.PORT || 8080;
 
 
 // Configure body parser for AJAX requests
-app.use(express.urlencoded({limit: '80mb'}));
-app.use(express.json({limit: '80mb'}));
+app.use(express.urlencoded({ limit: '80mb' }));
+app.use(express.json({ limit: '80mb' }));
 // Serve up static assets
 // app.use(express.static("client/public"));
 // app.use(express.static("Client/build"));
@@ -70,25 +70,10 @@ app.use("/scrape", scrapeRoute);
 
 
 
-
-
-// I think this served / CANNOT GET
-
-
-// app.get('/*', function(req, res){
-//   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-// });
-
-// app.use(function(req, res) {
-//   res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
-// });
-
-
-
 // Start the API server
-app.listen(PORT, function() {
+app.listen(PORT, function () {
   console.log(
     `🌎  ==> API Server now listening on PORT ${PORT}!`
   );
-  
+
 });
