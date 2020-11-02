@@ -59,6 +59,8 @@ class Grid2 extends React.Component {
     API.retrieve(id).then(res => {
       if (res.data.grid.length > 0) {
 
+        console.log(res.data.grid);
+
         const gridArray = res.data.grid.map(item => item.widget);
 
         const Map = {
@@ -87,7 +89,7 @@ class Grid2 extends React.Component {
         this.setState({
           grid: newGridArray,
           isLoading: false
-        });
+        }, () => console.log(this.state.grid));
       } else {
         this.setState({
           grid: this.state.grid,
