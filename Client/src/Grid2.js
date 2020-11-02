@@ -143,24 +143,24 @@ class Grid2 extends React.Component {
 
     var i;
 
-    for (i = 0; i < grid.length; i++) {
-      if ((grid[i].widget === "Google") || (grid[i].widget === "Yelp") || (grid[i].widget === "Bing") || (grid[i].widget === "Weather")) {
+    // for (i = 0; i < grid.length; i++) {
+    // if ((grid[i].widget === "Google") || (grid[i].widget === "Yelp") || (grid[i].widget === "Bing") || (grid[i].widget === "Weather")) {
 
-        if (this.state.isLoggedIn) {
-
-
-          const id = this.state.userId;
+    if (this.state.isLoggedIn) {
 
 
-          API.update(id, grid).then(res => {
-            if (res) {
+      const id = this.state.userId;
 
-            }
-          });
+
+      API.update(id, grid).then(res => {
+        if (res) {
+
         }
-
-      }
+      });
     }
+
+    // }
+    // }
 
 
 
