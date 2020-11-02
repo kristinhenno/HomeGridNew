@@ -132,11 +132,17 @@ class Grid2 extends React.Component {
 
   updateGridState = data => {
 
-    let removed = this.state.grid.splice(data.fromIndex, 1)[0]; // you can remove more than one...
-    this.state.grid.splice(data.toIndex, 0, removed);
-
     console.log(this.state.grid);
-    var grid = this.state.grid.map(item => {
+
+    let removed = this.state.grid.splice(data.fromIndex, 1)[0]; // you can remove more than one...
+
+    console.log(removed);
+
+    var grid = this.state.grid.splice(data.toIndex, 0, removed);
+
+    this.state.grid.map(item => {
+
+      console.log(grid);
       console.log(item.type.name);
       return { widget: item.type.name };
 
